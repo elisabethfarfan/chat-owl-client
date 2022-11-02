@@ -21,12 +21,12 @@ export const Login = () => {
    const onSubmit = async (datUser) => {
       try {
          
-      const res = await axios.post('https://chatowl-2l34.onrender.com/auth/logIn', datUser, axiosConfig )
+      const res = await axios.post('https://chatowl-service.onrender.com/auth/logIn', datUser, axiosConfig )
       console.log('hola1', res);
       // if (res) {
         
          console.log('hola1', res);
-         const respuesta = await axios.get('https://chatowl-2l34.onrender.com/users', {
+         const respuesta = await axios.get('https://chatowl-service.onrender.com/users', {
             headers: {
                // Authorization: document.cookie.substring(11),
                Authorization: res.data,
@@ -39,7 +39,7 @@ export const Login = () => {
             sessionStorage.setItem('USER', JSON.stringify(respuesta.data));
 
          console.log(respuesta)
-            const res = await axios.put('https://chatowl-2l34.onrender.com/user/active', {statusUser:1, idUser:respuesta.data.id})
+            const res = await axios.put('https://chatowl-service.onrender.com/user/active', {statusUser:1, idUser:respuesta.data.id})
             socket.emit('userConected', respuesta.data);   
                  
             navigate('/home');

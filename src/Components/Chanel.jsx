@@ -37,7 +37,7 @@ export const Chanel = ({setChanelUnique}) => {
          idDueño: sessionUser.id
       }
 
-      axios.post('https://chatowl-2l34.onrender.com/chanel', chanelUser)
+      axios.post('https://chatowl-service.onrender.com/chanel', chanelUser)
       .then((res) => {
          // console.log(res);
          socket.emit('nameChanel', res.data);
@@ -56,7 +56,7 @@ export const Chanel = ({setChanelUnique}) => {
    }
 
    useEffect(() => {
-      axios.get('https://chatowl-2l34.onrender.com/chanel').then((response) => {
+      axios.get('https://chatowl-service.onrender.com./chanel').then((response) => {
 
          setNameChanelsBd(response.data);
          // setChanelUnique(nameChanelBd.filter((e)=>e.namechanel==='#channelGeneral'))

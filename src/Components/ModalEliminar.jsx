@@ -6,7 +6,7 @@ import { socket } from './conection';
 
 export const ModalEliminar = ({ show, handleClose, nameChannel, idChannel}) => {
     function OndeleteChannel(){
-        axios.delete(`https://chatowl-2l34.onrender.com/channel/${idChannel}`)
+        axios.delete(`https://chatowl-service.onrender.com/channel/${idChannel}`)
         .then((response) => {
             handleClose();
             socket.emit('removeChannel', idChannel);

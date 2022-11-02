@@ -10,7 +10,7 @@ export const Users = ({setChanelUnique}) => {
    const [nameUser, setNameUsers] = useState([]);
 
    useEffect(() => {
-      axios.get('https://chatowl-2l34.onrender.com/usersConnected')
+      axios.get('https://chatowl-service.onrender.com/usersConnected')
          .then((response) => {
       
             const users = [];

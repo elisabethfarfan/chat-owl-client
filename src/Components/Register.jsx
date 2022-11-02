@@ -10,7 +10,7 @@ export const Register = () => {
 
   const onSubmit = async (datUser) => {
 
-    const res = await fetch('https://chatowl-2l34.onrender.com/auth/signUp', {
+    const res = await fetch('https://chatowl-service.onrender.com/auth/signUp', {
       method: "POST",
       body: JSON.stringify(datUser),
       headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", },
