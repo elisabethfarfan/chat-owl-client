@@ -7,6 +7,12 @@ import { socket } from './conection';
 
 export const ModalEditChannel = ({ showEdit, handleCloseEdit, nameChannel, idChannel}) => {
     const [ nameInput, setInputName ] = useState('');
+    let axiosConfig = {
+        headers: {
+            'Content-Type': 'application/json;charset=UTF-8',
+            "Access-Control-Allow-Origin": "*",
+        }
+      };
 
     function saveChanges(){
         const channelUpdate={
@@ -14,7 +20,7 @@ export const ModalEditChannel = ({ showEdit, handleCloseEdit, nameChannel, idCha
             idChannel: idChannel
            }
         
-       axios.put('https://chatowl-service.onrender.com/channel/update',channelUpdate)
+       axios.put('https://chatowl-2l34.onrender.com/channel/update',channelUpdate,axiosConfig)
        .then((respuesta)=>{
             console.log('edit', respuesta); 
             handleCloseEdit(); 

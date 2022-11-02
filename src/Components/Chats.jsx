@@ -23,9 +23,14 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
    const [messagesBd, setmessagesBd] = useState([]);
    const [messagesBdGrl, setMessagesBdGrl] = useState([]);
 
-
+   let axiosConfig = {
+      headers: {
+          'Content-Type': 'application/json;charset=UTF-8',
+          "Access-Control-Allow-Origin": "*",
+      }
+    };
    useEffect( () => {
-      axios.get('https://chatowl-service.onrender.com./direct/messages')
+      axios.get('https://chatowl-2l34.onrender.com/direct/messages',axiosConfig)
          .then((response) => {
             const messagePersonalBd = [];
             response.data.forEach(e => {
@@ -74,7 +79,7 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
             idChannel: chanelUnique[0].id_channel,
             nameuser: dataUser.name
          }
-         axios.post('https://chatowl-service.onrender.com./messages', objMessage)
+         axios.post('https://chatowl-2l34.onrender.com/messages', objMessage,axiosConfig)
          .then(() => {
             socket.emit('chatmessage', objMessage);
             const newMessage = {
@@ -107,7 +112,7 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
             nameUserRecivePersonal:chanelUnique[0].name,
             idUserRecivePersonal:chanelUnique[0].id,
           }
-         axios.post('https://chatowl-service.onrender.com./direct/messages', dataDirectMessage)
+         axios.post('https://chatowl-2l34.onrender.com/direct/messages', dataDirectMessage,axiosConfig)
          .then(() => {
             socket.emit('dataDirectMessage', dataDirectMessage);
             const datasDirectMessage={

@@ -16,9 +16,15 @@ export const Home = () => {
     id_creator: 0,
     namechanel :"#channelGeneral"}]);
   const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
+  let axiosConfig = {
+    headers: {
+        'Content-Type': 'application/json;charset=UTF-8',
+        "Access-Control-Allow-Origin": "*",
+    }
+  };
   
   async function signOut(){
-    const res = await axios.put('https://chatowl-service.onrender.com/user/active', {statusUser:0, idUser:sessionUser.id});
+    const res = await axios.put('https://chatowl-service.onrender.com/user/active', {statusUser:0, idUser:sessionUser.id},axiosConfig);
     socket.emit('userDisconnected', sessionUser);   
     navigate('/login')
   }

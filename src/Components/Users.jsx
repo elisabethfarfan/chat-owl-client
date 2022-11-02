@@ -8,9 +8,14 @@ export const Users = ({setChanelUnique}) => {
 
    const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
    const [nameUser, setNameUsers] = useState([]);
-
+   let axiosConfig = {
+      headers: {
+          'Content-Type': 'application/json;charset=UTF-8',
+          "Access-Control-Allow-Origin": "*",
+      }
+    };
    useEffect(() => {
-      axios.get('https://chatowl-service.onrender.com/usersConnected')
+      axios.get('https://chatowl-service.onrender.com/usersConnected',axiosConfig)
          .then((response) => {
       
             const users = [];

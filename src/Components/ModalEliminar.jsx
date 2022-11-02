@@ -5,8 +5,14 @@ import Modal from 'react-bootstrap/Modal';
 import { socket } from './conection';
 
 export const ModalEliminar = ({ show, handleClose, nameChannel, idChannel}) => {
+  let axiosConfig = {
+    headers: {
+        'Content-Type': 'application/json;charset=UTF-8',
+        "Access-Control-Allow-Origin": "*",
+    }
+  };
     function OndeleteChannel(){
-        axios.delete(`https://chatowl-service.onrender.com/channel/${idChannel}`)
+        axios.delete(`https://chatowl-service.onrender.com/channel/${idChannel}`,axiosConfig)
         .then((response) => {
             handleClose();
             socket.emit('removeChannel', idChannel);
