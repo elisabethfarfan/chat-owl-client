@@ -30,7 +30,7 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
       }
     };
    useEffect( () => {
-      axios.get('https://chatowl-2l34.onrender.com/direct/messages',axiosConfig)
+      axios.get('http://localhost:4000/direct/messages',axiosConfig)
          .then((response) => {
             const messagePersonalBd = [];
             response.data.forEach(e => {
@@ -79,7 +79,7 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
             idChannel: chanelUnique[0].id_channel,
             nameuser: dataUser.name
          }
-         axios.post('https://chatowl-2l34.onrender.com/messages', objMessage,axiosConfig)
+         axios.post('http://localhost:4000/messages', objMessage,axiosConfig)
          .then(() => {
             socket.emit('chatmessage', objMessage);
             const newMessage = {
@@ -112,7 +112,7 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
             nameUserRecivePersonal:chanelUnique[0].name,
             idUserRecivePersonal:chanelUnique[0].id,
           }
-         axios.post('https://chatowl-2l34.onrender.com/direct/messages', dataDirectMessage,axiosConfig)
+         axios.post('http://localhost:4000/direct/messages', dataDirectMessage,axiosConfig)
          .then(() => {
             socket.emit('dataDirectMessage', dataDirectMessage);
             const datasDirectMessage={

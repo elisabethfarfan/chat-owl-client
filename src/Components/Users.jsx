@@ -15,7 +15,7 @@ export const Users = ({setChanelUnique}) => {
       }
     };
    useEffect(() => {
-      axios.get('https://chatowl-service.onrender.com/usersConnected',axiosConfig)
+      axios.get('http://localhost:4000/usersConnected',axiosConfig)
          .then((response) => {
       
             const users = [];

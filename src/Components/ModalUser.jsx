@@ -25,7 +25,7 @@ export const ModalUser = ({ show, handleClose }) => {
 
     function handleRemoveImg(imgObj){
         setImageToRemove(imgObj.public_id);
-        axios.delete(`https://chatowl-service.onrender.com/${imgObj.public_id}`,axiosConfig)
+        axios.delete(`http://localhost:4000/${imgObj.public_id}`,axiosConfig)
         .then((response) => {  
               
             setImages([]);
@@ -56,7 +56,7 @@ export const ModalUser = ({ show, handleClose }) => {
             nameUser:nameInput.length===0?`${sessionUser.name}`: nameInput.target.value,
             idUser:sessionUser.id
         }
-       axios.put('https://chatowl-service.onrender.com/profile',userUpdate,axiosConfig).then((respuesta)=>{
+       axios.put('http://localhost:4000/profile',userUpdate,axiosConfig).then((respuesta)=>{
         const objectUser={
             id: respuesta.data.id_user,
             name: respuesta.data.name_user,
