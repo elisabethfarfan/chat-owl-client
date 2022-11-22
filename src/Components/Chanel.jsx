@@ -10,7 +10,7 @@ import { MenuMessage } from './MenuMessage';
 
 
 
-export const Chanel = ({setChanelUnique}) => {
+export const Chanel = ({setChanelUnique,perfilUser,usersChat,setChat,chat,setUsers,setperfilUser,color,setcolor}) => {
 
    // const setChanelUnique = props.setChanelUnique
 
@@ -42,9 +42,9 @@ export const Chanel = ({setChanelUnique}) => {
          namechanel: "#" + objectChanel.namechanel,
          idDueño: sessionUser.id
       }
-      // axios.post('http://localhost:4000/chanel', chanelUser,axiosConfig)
+      // axios.post('https://chatowl-service.onrender.com/chanel', chanelUser,axiosConfig)
 
-      axios.post('http://localhost:4000/chanel', chanelUser,axiosConfig)
+      axios.post('https://chatowl-service.onrender.com/chanel', chanelUser,axiosConfig)
       .then((res) => {
          // console.log(res);
          socket.emit('nameChanel', res.data);
@@ -61,7 +61,7 @@ export const Chanel = ({setChanelUnique}) => {
    }
 
    useEffect(() => {
-      axios.get('http://localhost:4000/chanel',axiosConfig).then((response) => {
+      axios.get('https://chatowl-service.onrender.com/chanel',axiosConfig).then((response) => {
 
          setNameChanelsBd(response.data);
          // setChanelUnique(nameChanelBd.filter((e)=>e.namechanel==='#channelGeneral'))
@@ -128,15 +128,38 @@ useEffect(()=>{
 
    const changeChanel = (name) => {
       setChanelUnique(nameChanelGn.filter((e)=>e.namechanel===name))
+      setChat(true)
       // return () => {
       //    socket.off('chatmessage')
       //    console.log('cerrando socket');
       // }
    }
+   function channel(){
+      setUsers(false);
+      setperfilUser(false);
+      setChat(false)
+      setcolor(true);
+    }
+   function users(){
+      setUsers(true);
+      setperfilUser(false);
+      setChat(false);
+      setcolor(false);
+   
+    }
+ 
    return (
 
-      <div className='boxBodyHome' >
-         <h2>Canales</h2>
+      <div  className={perfilUser||usersChat||chat ?'boxBodyHome non':'boxBodyHome block'} >
+         <div className='buttonChanelUser'>
+            <div  className={color?'buttonChan blue':'buttonChan'} onClick={channel}>
+               <h2 className={color?'blue':undefined}>Canales</h2>
+            </div>
+            <div className={color?'buttonUser':'buttonUser blue'}  onClick={users}>
+               <h2 className={!color?'blue':undefined}>Usuarios</h2>
+            </div>
+         </div>
+         <h2 className='titleNone'>Canales</h2>
          <div className='createChanel'>
 
             <form className='formChanel' onSubmit={handleSubmit(onSubmitChanel)}>
@@ -151,9 +174,9 @@ useEffect(()=>{
          </div>
          <div className='boxChanel'>
             {nameChanelGn.map((chanel, index) => (
-               <div key={index} className='nameChanel' onClick={(e) => changeChanel(chanel.namechanel)}>
-                  <img className="avatar" alt='imágen de un avatar' src={chanelImg} />
-                  <p className='nameChanelP'>{chanel.namechanel}</p>
+               <div key={index} className='nameChanel' >
+                  <img className="avatar" alt='imagen de un avatar' src={chanelImg} onClick={(e) => changeChanel(chanel.namechanel)} />
+                  <p onClick={(e) => changeChanel(chanel.namechanel)} className='nameChanelP'>{chanel.namechanel}</p>
                   {chanel.id_creator === sessionUser.id && 
                   <MenuMessage 
                      idChannel = {chanel.id_channel} 

@@ -7,7 +7,7 @@
 body {
   padding: 0;
   margin: 0;
-  font-family:-apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Fira Sans, Ubuntu, Oxygen, Oxygen Sans, Cantarell, Droid Sans, Apple Color Emoji, Segoe UI Emoji, Segoe UI Emoji, Segoe UI Symbol, Lucida Grande, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Fira Sans, Ubuntu, Oxygen, Oxygen Sans, Cantarell, Droid Sans, Apple Color Emoji, Segoe UI Emoji, Segoe UI Emoji, Segoe UI Symbol, Lucida Grande, Helvetica, Arial, sans-serif;
   ;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -127,7 +127,8 @@ p {
 }
 
 .buhoLogo {
-  width: 60px;
+  width: 41px;
+  height: 33px;
 }
 
 .boxMenu {
@@ -177,7 +178,7 @@ p {
   display: flex;
   flex-direction: column;
   width: 30%;
-  box-shadow: 0px -7px 20px 0px rgb(0 0 0 / 25%);
+  /* box-shadow: 0px -7px 20px 0px rgb(0 0 0 / 25%); */
   background-blend-mode: luminosity;
   align-items: center;
   z-index: 1;
@@ -187,7 +188,7 @@ p {
   display: flex;
   flex-direction: column;
   width: 100%;
-  box-shadow: 10px -8px 9px 0px rgb(0 0 0 / 25%);
+  /* box-shadow: 10px -8px 9px 0px rgb(0 0 0 / 25%); */
   background-blend-mode: luminosity;
   align-items: center;
   z-index: 1;
@@ -200,7 +201,7 @@ p {
   background-color: #DEE8F1;
   align-items: center;
   position: relative;
-  box-shadow: inset -9px 0px 4px rgb(0 0 0 / 25%);
+  /* box-shadow: inset -9px 0px 4px rgb(0 0 0 / 25%); */
 
 
 }
@@ -228,18 +229,20 @@ h2 {
   align-items: center;
   overflow: auto;
 }
+
 .boxChanel::-webkit-scrollbar {
   -webkit-appearance: none;
 }
 
 .boxChanel::-webkit-scrollbar:vertical {
-  width:10px;
+  width: 10px;
 }
 
 
-.boxChanel::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+.boxChanel::-webkit-scrollbar-button:increment,
+.contenedor::-webkit-scrollbar-button {
   display: none;
-} 
+}
 
 .boxChanel::-webkit-scrollbar:horizontal {
   height: 10px;
@@ -253,7 +256,7 @@ h2 {
 }
 
 .boxChanel::-webkit-scrollbar-track {
-  border-radius: 10px;  
+  border-radius: 10px;
 }
 
 .nameChanel {
@@ -419,10 +422,11 @@ h2 {
 
 .nameChanelP {
   margin: 2%;
+  width: 90%;
   font-size: 16px;
   color: #2F4152;
   font-weight: 500;
-  
+
 }
 
 
@@ -445,17 +449,19 @@ h2 {
   scroll-behavior: smooth;
 
 }
+
 .messageContainer::-webkit-scrollbar {
   -webkit-appearance: none;
 }
 
 .messageContainer::-webkit-scrollbar:vertical {
-  width:10px;
+  width: 10px;
 }
 
-.messageContainer::-webkit-scrollbar-button:increment,.messageContainer::-webkit-scrollbar-button {
+.messageContainer::-webkit-scrollbar-button:increment,
+.messageContainer::-webkit-scrollbar-button {
   display: none;
-} 
+}
 
 .messageContainer::-webkit-scrollbar:horizontal {
   height: 10px;
@@ -468,7 +474,7 @@ h2 {
 }
 
 .messageContainer::-webkit-scrollbar-track {
-  border-radius: 10px;  
+  border-radius: 10px;
 }
 
 .textMessage {
@@ -559,6 +565,9 @@ h2 {
 
 } */
 
+.buttonChanelUser{
+  display: none;
+}
 /* estilos del perfil de usuario */
 .boxUsersConected {
   width: 30%;
@@ -570,7 +579,7 @@ h2 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 2em;
+  margin-top: .2em;
   margin-bottom: 2em;
   /* background-color: #116CDD; */
 }
@@ -632,6 +641,7 @@ h2 {
 .boxNameEdith {
   display: flex;
   align-items: center;
+  margin-top: 0.4rem;
 
 }
 
@@ -663,11 +673,11 @@ h2 {
   background-color: white !important;
   border: white !important;
   border-radius: 50% !important;
- 
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
 }
 
 .cam {
@@ -678,7 +688,8 @@ h2 {
 .modal-content {
   width: 85% !important;
 }
-.userContainer{
+
+.userContainer {
   display: flex;
   width: 90%;
   align-items: center;
@@ -686,52 +697,115 @@ h2 {
   align-content: center;
 
 }
-.messageDirect{
+
+.messageDirect {
   width: 30px;
   height: 30px;
   margin-left: 10px;
 
 }
-.menuMessage{
+
+.menuMessage {
   /* width: 13px !important; */
   /* margin-left: 5% !important;
   position: absolute !important;
   right: 6px !important;
   top: 5px !important; */
 }
-.dropdown{
+
+.dropdown {
   width: 13px !important;
   margin-right: 6% !important;
   position: absolute !important;
   right: 6px !important;
   top: -20px !important;
 }
+
 .dropdown-toggle:empty::after {
   margin-left: 0;
   color: black;
   padding: 0;
 }
-.btn-success{
+
+.btn-success {
   background-color: transparent !important;
   --bs-btn-border-color: none !important;
   padding: 0 !important;
   color: transparent !important;
 }
-span{
+
+span {
   font-size: 11px;
   color: #6c757d;
   font-weight: 400;
 }
+
 .btn-primary {
 
   --bs-btn-bg: #db4f58 !important;
   --bs-btn-border-color: #a73535 !important;
   --bs-btn-hover-bg: #a73535 !important;
-  --bs-btn-hover-border-color: #db4f58 !important ;
+  --bs-btn-hover-border-color: #db4f58 !important;
 }
-.menuMessageImg{
+
+.menuMessageImg {
   width: 16px;
 }
+
+.hamburger .line {
+  width: 40px;
+  height: 5px;
+  background-color: #ecf0f1;
+  display: block;
+  margin: 8px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger:hover {
+  cursor: pointer;
+}
+
+#hamburger-3.is-active .line:nth-child(1),
+#hamburger-3.is-active .line:nth-child(3) {
+  width: 40px;
+}
+
+#hamburger-3.is-active .line:nth-child(1) {
+  -webkit-transform: translateX(-10px) rotate(-45deg);
+  -ms-transform: translateX(-10px) rotate(-45deg);
+  -o-transform: translateX(-10px) rotate(-45deg);
+  transform: translateX(-10px) rotate(-45deg);
+}
+
+#hamburger-3.is-active .line:nth-child(3) {
+  -webkit-transform: translateX(-10px) rotate(45deg);
+  -ms-transform: translateX(-10px) rotate(45deg);
+  -o-transform: translateX(-10px) rotate(45deg);
+  transform: translateX(-10px) rotate(45deg);
+}
+
+.menuHamburger {
+  display: none;
+}
+.back{
+  display: none;
+}
+
+@media only screen and (max-width: 1200px) {
+
+  .nameChanel {
+
+    width: 78%;
+  }
+
+  .userContainer {
+
+    width: 94%;
+  }
+}
+
 @media only screen and (max-width: 900px) {
 
   .input,
@@ -740,9 +814,93 @@ span{
     width: 100%;
   }
 
+  .nameChanel {
+
+    width: 90%;
+  }
+
+  .userContainer {
+
+    width: 98%;
+  }
 }
 
-@media only screen and (max-width: 573px) {
+@media only screen and (max-width: 800px) {
+
+  .nameChanel {
+
+    width: 95%;
+  }
+
+  .userContainer {
+
+    width: 100%;
+  }
+
+  .nameChanelP {
+
+    font-size: 13px;
+  }
+
+  .nameuserconect {
+    font-size: 12px;
+    width: 70%;
+
+  }
+
+  .imgAvatar {
+    width: 28%;
+  }
+
+  .inputChanel {
+
+    width: 65%;
+  }
+
+  .buttonChanel {
+
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+
+  .nameChanel {
+
+    width: 98%;
+  }
+
+  .inputChanel {
+
+    width: 60%;
+  }
+
+  .buttonChanel {
+
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 670px) {
+  .avatarUser{
+    width: 24px;
+    height: 24px;
+  }
+  .messageDirect{
+    width: 24px;
+    height: 24px;
+  }
+  .boxPerfilUser label{
+    font-size: 16px;
+  }
+  .boxChanel{
+    width: 98%;
+  }
+  .avatar {
+    width: 36px;
+  }
+}
+
+@media only screen and (max-width: 580px) {
 
   .leftContainer {
     display: none;
@@ -756,4 +914,158 @@ span{
     width: 100%;
   }
 
+  .menuHamburger {
+    display: flex;
+  }
+
+  .boxMenu {
+    display: none;
+  }
+
+  .menuResponsive {
+    top: .8% !important;
+    right: 15px !important;
+  }
+
+  .boxMessage {
+    display: none;
+  }
+
+  .boxUsersConected {
+    display: flex;
+    width: 100%;
+    font-size: 25px !important;
+
+  }
+  .modal-content {
+    width: 100% !important;
+}
+
+  .boxBodyHome {
+
+    width: 100%;
+  }
+
+  .nameChanel {
+    width: 80%;
+  }
+
+  .inputChanel {
+    width: 80%;
+   
+    height: 38px;
+  }
+
+  .nameChanelP {
+    font-size: 22px;
+  }
+
+  .createChanel {
+
+    width: 100%;
+  }
+  .formChanel {
+width: 80%;
+}
+.backImgAt {
+
+  width: 300px;
+  height: 300px;
+}
+.boxWhiteAt {
+
+  width: 292px;
+  height: 292px;
+}
+.block{
+  display: flex;
+}
+.non{
+  display: none ;
+}
+.boxMessage {
+
+  width: 100%;
+}
+.menuBurger{
+  display: flex;
+}
+.menuMessageImg {
+  width: 30px;
+}
+.boxPerfilUser {
+  justify-content: space-between;
+}
+.nameuserconect {
+  font-size: 20px;
+  width: 70%;
+
+}
+.back{
+  display: flex;
+  /* width: 10%; */
+  margin-left: -9% !important;
+  align-items: center;
+}
+.boxPerfilUser label{
+  font-size: 25px;
+}
+.buttonChanel{
+  font-size: 20px;
+  height: 38px;
+}
+.buttonChanelUser{
+  display: flex;
+  margin: 25px 0;
+  width: 80%;
+  background-color: #DEE8F1;
+
+  border-radius: 20px;
+}
+.buttonChan{
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.buttonUser{
+  display: flex;
+  width: 50%;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.blue{
+  background-color: #2F4152;
+  color: white !important;
+}
+
+.titleNone{
+  display: none;
+}
+.perfilResponsive{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
+  margin-right: 5%;
+}
+.avatarResponsive{
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.downResponsive{
+  width: 18px;
+  height: 18px;
+}
+.volver{
+  width: 80% !important;
+}
 }

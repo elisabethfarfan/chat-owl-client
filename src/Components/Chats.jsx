@@ -3,9 +3,9 @@ import { socket } from './conection';
 import paper from '../images/paper.png';
 import InputEmoji from "react-input-emoji";
 import axios from 'axios';
+import back from '../images/back.png';
 
-
-export const Chats = ({ chanelUnique, setChanelUnique }) => {
+export const Chats = ({ chanelUnique, setChanelUnique,chat,setChat,setUsers,setperfilUser,setcolor}) => {
 
    const sessionUser = JSON.parse(sessionStorage.getItem('USER'));
 
@@ -15,7 +15,7 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
    const [messages, setMessages] = useState([]);
 
    const [messagesPersonal, setMessagesPersonal] = useState([]);
-   const [messagesPersonalBd, setMessagesPersonalBd] = useState([]);
+  
 
    const [messagesFilter, setMessageFilter] = useState([]);
 
@@ -30,7 +30,7 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
       }
     };
    useEffect( () => {
-      axios.get('http://localhost:4000/direct/messages',axiosConfig)
+      axios.get('https://chatowl-service.onrender.com/direct/messages',axiosConfig)
          .then((response) => {
             const messagePersonalBd = [];
             response.data.forEach(e => {
@@ -69,7 +69,7 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
       const date = new Date();
       const hour = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
       const minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
-
+      if(message.length>0){ 
     
       if(chanelUnique[0].id_channel){
          const objMessage = {
@@ -79,7 +79,7 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
             idChannel: chanelUnique[0].id_channel,
             nameuser: dataUser.name
          }
-         axios.post('http://localhost:4000/messages', objMessage,axiosConfig)
+         axios.post('https://chatowl-service.onrender.com/messages', objMessage,axiosConfig)
          .then(() => {
             socket.emit('chatmessage', objMessage);
             const newMessage = {
@@ -112,7 +112,7 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
             nameUserRecivePersonal:chanelUnique[0].name,
             idUserRecivePersonal:chanelUnique[0].id,
           }
-         axios.post('http://localhost:4000/direct/messages', dataDirectMessage,axiosConfig)
+         axios.post('https://chatowl-service.onrender.com/direct/messages', dataDirectMessage,axiosConfig)
          .then(() => {
             socket.emit('dataDirectMessage', dataDirectMessage);
             const datasDirectMessage={
@@ -133,6 +133,7 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
             console.log(error, 'error');
 
          });
+      }
       }
 
       
@@ -226,14 +227,22 @@ export const Chats = ({ chanelUnique, setChanelUnique }) => {
     
 
    }, [messages,messagesPersonal,chanelUnique,setMessageFilter])
-
-   console.log('personal', messagesPersonal);
+   function backChanel(){
+      setUsers(false);
+      setperfilUser(false);
+      setChat(false);
+      setcolor(true);
+   }
+  
    return (
-      <div className='boxMessage'>
+      <div className={chat?'boxMessage block':'boxMessage non'}>
          {
             chanelUnique.map((channel, index) => (
                <div key={index} className='nameChanelHome'>
-                  <h2 id='chatNames'>{channel.namechanel || channel.name}</h2>
+                  <div className='back'>
+                     <img className="buhoLogo" alt='imágen de atra' src={back} onClick={backChanel} />
+                  </div>
+                  <h2 id='chatNames' className='hh'>{channel.namechanel || channel.name} </h2>
                </div>
             ))
 
